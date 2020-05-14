@@ -1,0 +1,76 @@
+:root {
+  --background-color: #5d5d5d;
+  --border-color: #462921;
+  --numbers-background-color: #7d694c;
+  --light-tile-color: #b5915f;
+  --dark-tile-color: #441a03;
+}
+
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0; 
+  background-color: var(--border-color);
+  display: flex;
+  box-sizing: border-box;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+}
+
+.chessboard {
+  width: 600px;
+  height: 700px;
+  background-color: var(--background-color);
+  grid-template-rows: 1fr 600px 1fr;
+}
+
+.board {
+  grid-template: repeat(8, 1fr) / repeat(8, 1fr)
+}
+
+.top, .bottom {
+  grid-template-columns: repeat(8, 1fr);
+  background-color: var(--numbers-background-color);
+}
+
+.odd-row:nth-child(odd), .even-row:nth-child(even) {
+  background-color: var(--light-tile-color);
+}
+
+.odd-row:nth-child(even), .even-row:nth-child(odd) {
+  background-color: var(--dark-tile-color);
+}
+
+p {
+  text-align: center;
+}
+
+.error-message {
+  text-align: center;
+  display: none;
+}
+@media screen and (max-width:700px) {
+  
+
+  .chessboard {
+    display: none;
+  }
+
+  .error-message {
+    display: inline;
+  }
+}
